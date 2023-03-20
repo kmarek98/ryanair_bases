@@ -1,4 +1,10 @@
 <!doctype html>
+<html>
+  <head>
+    <title>Ryanair Bases</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/kmarek98/ryanair_bases/main/icons/ryr.png">
+  </head>
+  <body>
 <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; text-align: center;">
     <img src="https://raw.githubusercontent.com/kmarek98/ryanair_bases/main/images/loading.gif" alt="My Image" oncontextmenu="return false;" ondragstart="return false;">
 </div>  
@@ -22,10 +28,6 @@
             margin: 0;
         }
         </style>
-        <title>Ryanair Bases</title>
-        <link rel="icon" href="https://raw.githubusercontent.com/kmarek98/ryanair_bases/main/images/ryr.png" type="image/png">
-    </head>
-    <body>  
     </head>
     <body>
         <div id="map">
@@ -61,7 +63,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:5, minZoom:4
-        }).fitBounds([[23.975351771679822,-42.47042200191662],[63.31639786024124,72.90598544619591]]);
+        }).fitBounds([[25.90876701374571,-52.9906759958085],[65.48396827955695,68.1543994524191]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
