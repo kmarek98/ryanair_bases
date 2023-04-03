@@ -25,6 +25,7 @@
             margin: 0;
         }
         </style>
+        <title></title>
     </head>
     <body>
         <div id="map">
@@ -39,8 +40,8 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="data/ne_10m_admin_0_countries_crimea_correct_0.js"></script>
-        <script src="data/ryrbases_html_1.js"></script>
-        <script src="data/ryrbases_2.js"></script>
+        <script src="data/ryrbases_html2_1.js"></script>
+        <script src="data/ryanairbases_2.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -60,7 +61,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:5, minZoom:4
-        }).fitBounds([[25.90876701374571,-52.9906759958085],[65.48396827955695,68.1543994524191]]);
+        }).fitBounds([[19.623123905391246,-73.5491854838576],[67.99392506408672,85.56976992189897]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -403,7 +404,7 @@
         });
         bounds_group.addLayer(layer_ne_10m_admin_0_countries_crimea_correct_0);
         map.addLayer(layer_ne_10m_admin_0_countries_crimea_correct_0);
-        function pop_ryrbases_html_1(feature, layer) {
+        function pop_ryrbases_html2_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -427,38 +428,38 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ryrbases_html_1_0() {
+        function style_ryrbases_html2_1_0() {
             return {
-                pane: 'pane_ryrbases_html_1',
-                radius: 5.98,
+                pane: 'pane_ryrbases_html2_1',
+                radius: 8.0,
                 stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(247,247,247,0.0)',
+                fillColor: 'rgba(255,255,255,0.0)',
                 interactive: true,
             }
         }
-        map.createPane('pane_ryrbases_html_1');
-        map.getPane('pane_ryrbases_html_1').style.zIndex = 401;
-        map.getPane('pane_ryrbases_html_1').style['mix-blend-mode'] = 'normal';
-        var layer_ryrbases_html_1 = new L.geoJson(json_ryrbases_html_1, {
+        map.createPane('pane_ryrbases_html2_1');
+        map.getPane('pane_ryrbases_html2_1').style.zIndex = 401;
+        map.getPane('pane_ryrbases_html2_1').style['mix-blend-mode'] = 'normal';
+        var layer_ryrbases_html2_1 = new L.geoJson(json_ryrbases_html2_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ryrbases_html_1',
-            layerName: 'layer_ryrbases_html_1',
-            pane: 'pane_ryrbases_html_1',
-            onEachFeature: pop_ryrbases_html_1,
+            dataVar: 'json_ryrbases_html2_1',
+            layerName: 'layer_ryrbases_html2_1',
+            pane: 'pane_ryrbases_html2_1',
+            onEachFeature: pop_ryrbases_html2_1,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_ryrbases_html_1_0(feature));
+                return L.circleMarker(latlng, style_ryrbases_html2_1_0(feature));
             },
         });
-        bounds_group.addLayer(layer_ryrbases_html_1);
-        map.addLayer(layer_ryrbases_html_1);
-        function pop_ryrbases_2(feature, layer) {
+        bounds_group.addLayer(layer_ryrbases_html2_1);
+        map.addLayer(layer_ryrbases_html2_1);
+        function pop_ryanairbases_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -484,26 +485,58 @@
                         <td>' + (feature.properties['ICAO'] !== null ? autolinker.link(feature.properties['ICAO'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <td colspan="2">' + (feature.properties['LAT'] !== null ? autolinker.link(feature.properties['LAT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LON'] !== null ? autolinker.link(feature.properties['LON'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">NAME</th>\
                         <td>' + (feature.properties['NAME'] !== null ? autolinker.link(feature.properties['NAME'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FRDR24_DEP'] !== null ? autolinker.link(feature.properties['FRDR24_DEP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FRDR24_ARR'] !== null ? autolinker.link(feature.properties['FRDR24_ARR'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AIRLINE_CODE'] !== null ? autolinker.link(feature.properties['AIRLINE_CODE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">AIRLINE</th>\
                         <td>' + (feature.properties['AIRLINE'] !== null ? autolinker.link(feature.properties['AIRLINE'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">AIRCRAFT C</th>\
-                        <td>' + (feature.properties['AIRCRAFT C'] !== null ? autolinker.link(feature.properties['AIRCRAFT C'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['RYR_OFFICIAL_NAME'] !== null ? autolinker.link(feature.properties['RYR_OFFICIAL_NAME'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['A/C_BASED'] !== null ? autolinker.link(feature.properties['A/C_BASED'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['2023.03.19'] !== null ? autolinker.link(feature.properties['2023.03.19'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['2023.03.23'] !== null ? autolinker.link(feature.properties['2023.03.23'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['2023.03.27'] !== null ? autolinker.link(feature.properties['2023.03.27'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['2023.04.01'] !== null ? autolinker.link(feature.properties['2023.04.01'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HTML'] !== null ? autolinker.link(feature.properties['HTML'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ryrbases_2_0(feature) {
-            switch(String(feature.properties['AIRLINE'])) {
+        function style_ryanairbases_2_0(feature) {
+            switch(String(feature.properties['AIRLINE_CODE'])) {
                 case 'RYS':
                     return {
-                pane: 'pane_ryrbases_2',
+                pane: 'pane_ryanairbases_2',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
@@ -515,7 +548,7 @@
                     break;
                 case 'LDA':
                     return {
-                pane: 'pane_ryrbases_2',
+                pane: 'pane_ryanairbases_2',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
@@ -527,7 +560,7 @@
                     break;
                 case 'MAY':
                     return {
-                pane: 'pane_ryrbases_2',
+                pane: 'pane_ryanairbases_2',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
@@ -539,7 +572,7 @@
                     break;
                 case 'RYR':
                     return {
-                pane: 'pane_ryrbases_2',
+                pane: 'pane_ryanairbases_2',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
@@ -551,36 +584,36 @@
                     break;
             }
         }
-        map.createPane('pane_ryrbases_2');
-        map.getPane('pane_ryrbases_2').style.zIndex = 402;
-        map.getPane('pane_ryrbases_2').style['mix-blend-mode'] = 'normal';
-        var layer_ryrbases_2 = new L.geoJson(json_ryrbases_2, {
+        map.createPane('pane_ryanairbases_2');
+        map.getPane('pane_ryanairbases_2').style.zIndex = 402;
+        map.getPane('pane_ryanairbases_2').style['mix-blend-mode'] = 'normal';
+        var layer_ryanairbases_2 = new L.geoJson(json_ryanairbases_2, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_ryrbases_2',
-            layerName: 'layer_ryrbases_2',
-            pane: 'pane_ryrbases_2',
-            onEachFeature: pop_ryrbases_2,
+            dataVar: 'json_ryanairbases_2',
+            layerName: 'layer_ryanairbases_2',
+            pane: 'pane_ryanairbases_2',
+            onEachFeature: pop_ryanairbases_2,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_ryrbases_2_0(feature));
+                return L.marker(latlng, style_ryanairbases_2_0(feature));
             },
         });
-        bounds_group.addLayer(layer_ryrbases_2);
-        map.addLayer(layer_ryrbases_2);
+        bounds_group.addLayer(layer_ryanairbases_2);
+        map.addLayer(layer_ryanairbases_2);
         setBounds();
-        resetLabels([layer_ryrbases_2]);
+        resetLabels([layer_ryanairbases_2]);
         map.on("zoomend", function(){
-            resetLabels([layer_ryrbases_2]);
+            resetLabels([layer_ryanairbases_2]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_ryrbases_2]);
+            resetLabels([layer_ryanairbases_2]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_ryrbases_2]);
+            resetLabels([layer_ryanairbases_2]);
         });
         </script>
     </body>
@@ -605,4 +638,4 @@
 </html>
 <div style="position: absolute; top: 0; right: 0; z-index: 9999;">
     <img src="https://raw.githubusercontent.com/kmarek98/ryanair_bases/main/images/ryanairgroup.png" alt="My Image" oncontextmenu="return false;" ondragstart="return false;" width="156" height="55">
-  </div>
+  </div>  
